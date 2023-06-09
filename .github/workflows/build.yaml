@@ -61,7 +61,7 @@ jobs:
       - name: Build ${{ matrix.boards }}_${{ matrix.suites }}_${{ matrix.flavors }}
         uses: radxa-repo/rbuild@main
         with:
-          board: ${{ matrix.boards }}
+          board: rock-4se
           suite: ${{ matrix.suites }}
           flavor: ${{ matrix.flavors }}
           test-repo: true
