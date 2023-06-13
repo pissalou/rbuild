@@ -24,7 +24,19 @@ jobs:
           echo "boards=$(./rbuild json boards)"
           echo "suites=$(./rbuild json suites)"
           echo "flavors=$(./rbuild json flavors)"
-
+ 
+  download-latest-rt-kernel:
+      runs-on: ubuntu-latest
+      steps:
+        - name: download-artifact
+          uses: dawidd6/action-download-artifact@v2
+          with:
+            github_token: ${{secrets.GITHUB_TOKEN}}
+            repo: pissalou/bsp
+            check_artifacts: false
+            search_artifacts: false
+            skip_unpack: false
+    
   build-rootfs:
     needs: query
     runs-on: ubuntu-latest
