@@ -29,13 +29,13 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - name: download-artifact
-          uses: dawidd6/action-download-artifact@v2
+          uses: bettermarks/action-artifact-download@0.3.0
           with:
-            github_token: ${{secrets.GITHUB_TOKEN}}
             repo: pissalou/bsp
-            check_artifacts: false
-            search_artifacts: false
-            skip_unpack: false
+            token: ${{ secrets.GITHUB_TOKEN }}
+            artifact_name: linux_rockchip_1
+            rename: linux_rockchip_kernel_packages    
+            wait_seconds: 60  
     
   build-rootfs:
     needs: query
